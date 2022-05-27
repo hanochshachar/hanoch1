@@ -5,10 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
 </head>
 <body>
-    <form action="">
-        <input type="text">
+    <form action="" id="upBook" onsubmit="handleUpBook(event)">
+        <p><label for="image" style="cursor: pointer;">Upload book image</label></p>
+        <input type="file" name="bookImage" id="image" accept="image/*" style="display: none;">
+        <label for="nameOfbook">name</label>
+        <input type="text" name="namOfBook" > <br> <br>
+        <label for="price">inter price</label>
+        <input type="number" name="price"> <br> <br>
+        <input type="submit" style="cursor: pointer;">
     </form>
+    
+
+    <script src="./dist/index.js"></script>
 </body>
 </html>
