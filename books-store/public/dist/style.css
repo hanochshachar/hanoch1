@@ -1,4 +1,8 @@
-#upBook {
+body {
+  text-align: center;
+  background-image: url("../images/books.jpg");
+}
+body #upBook {
   text-align: center;
   align-items: center;
 }

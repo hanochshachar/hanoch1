@@ -4,6 +4,9 @@ const port = process.env.PORT | 4000;
 
 app.use(express.static('public'));
 
+import storeRoute from './route/bookRoute'
+app.use('/books', storeRoute)
+
 
 app.listen(port, ()=>{
     console.log(`listen on port ${port}`)
