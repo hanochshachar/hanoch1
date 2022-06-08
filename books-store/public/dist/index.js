@@ -37,13 +37,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var html = "";
 function handleUpBook(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var image, name, price, data;
+        var image, name, price, description, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     image = ev.target.element.bookImage.value;
                     name = ev.target.element.namOfBook.value;
                     price = ev.target.element.price.value;
+                    description = ev.target.element.description.value;
                     return [4 /*yield*/, axios.post('/books/booksStore')];
                 case 1:
                     data = (_a.sent()).data;
