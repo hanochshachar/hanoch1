@@ -2,14 +2,15 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
-var express = require('express');
-var app = express();
-var port = process.env.PORT | 3000;
-app.use(express.static('public'));
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require('express');
+const app = express();
+//@ts-ignore
+const port = process.env.PORT | 3000;
 app.use(express.json());
-var bookRoute_1 = __importDefault(require("./route/bookRoute"));
-app.use('/books', bookRoute_1["default"]);
-app.listen(port, function () {
-    console.log("listen on port " + port);
+app.use(express.static("public"));
+const bookRoute_1 = __importDefault(require("./route/bookRoute"));
+app.use('/', bookRoute_1.default);
+app.listen(port, () => {
+    console.log(`listen on port ${port}`);
 });

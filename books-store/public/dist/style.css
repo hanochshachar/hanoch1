@@ -6,3 +6,7 @@ body #upBook {
   text-align: center;
   align-items: center;
 }
+body #upBook #labDes {
+  position: relative;
+  bottom: 25px;
+}

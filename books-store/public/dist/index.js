@@ -45,7 +45,7 @@ function handleUpBook(ev) {
                     name = ev.target.element.namOfBook.value;
                     price = ev.target.element.price.value;
                     description = ev.target.element.description.value;
-                    return [4 /*yield*/, axios.post('/books/booksStore')];
+                    return [4 /*yield*/, axios.post('/booksStore')];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);

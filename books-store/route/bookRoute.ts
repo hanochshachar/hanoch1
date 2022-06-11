@@ -5,6 +5,6 @@ import { postBook, getBook } from '../controlers/bookCont';
 
 
 router.post('/booksStore', postBook)
-        .get('/booksStore', getBook)
+        .get('/booksStore', getBook);
 
 export default router;

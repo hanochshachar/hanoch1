@@ -6,8 +6,8 @@ async function handleUpBook(ev){
    const name = ev.target.element.namOfBook.value
    const price = ev.target.element.price.value
    const description = ev.target.element.description.value
-
-   const {data} = await axios.post('/books/booksStore')
+   //@ts-ignore
+   const {data} = await axios.post('/booksStore')
    console.log(data)
 
 
