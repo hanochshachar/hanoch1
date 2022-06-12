@@ -37,20 +37,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var html = "";
 function handleUpBook(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var image, name, price, description, data;
+        var image, name, description, price, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    image = ev.target.element.bookImage.value;
+                    ev.preventDefault();
+                    image = ev.target.element.bookImg.value;
                     name = ev.target.element.namOfBook.value;
-                    price = ev.target.element.price.value;
                     description = ev.target.element.description.value;
-                    return [4 /*yield*/, axios.post('/booksStore')];
+                    price = ev.target.element.price.value;
+                    return [4 /*yield*/, axios.post('/booksStore', image, name, description, price)];
                 case 1:
                     data = (_a.sent()).data;
                     console.log(data);
                     return [2 /*return*/];
             }
+        });
+    });
+}
+function postBook(book) {
+    return __awaiter(this, void 0, void 0, function () {
+        var books, html;
+        return __generator(this, function (_a) {
+            books = document.querySelector("#books");
+            html = "";
+            html = "<img src=\"" + book.bookImage + "\" id=\"bookImg\"> <br>\n   <h3>" + book.name + "</h3> <br>\n   <p>" + book.description + "</p> <br>\n   <h1>" + book.price + "</h1> <br>";
+            books.innerHTML = html;
+            return [2 /*return*/];
         });
     });
 }

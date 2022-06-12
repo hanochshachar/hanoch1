@@ -1,7 +1,7 @@
 
 
 interface Book{
-  image: File,
+  image: String,
   name: string,
   description: string,
   price: number,
@@ -14,14 +14,14 @@ let addBook:Array <Book> = [];
 
 export async function postBook(req, res) {
   try {
-    const { image, name, price, description } = await req.body;
+    const { image, name, description, price } = await req.body;
     if (!image) throw new Error("image is required");
     if (!name) throw new Error("name is required");
     if (!price) throw new Error("price is required");
     
 
-    const bookDetail = { image, name, description, price,  serialNo:uid() };
-    addBook.push(bookDetail);
+    const bookDetails = { image, name, description, price,  serialNo:uid() };
+    addBook.push(bookDetails);
     res.send({ addBook });
   } catch (error) {
     res.send({ error });

@@ -40,22 +40,22 @@ exports.getBook = exports.postBook = void 0;
 var addBook = [];
 function postBook(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, image, name, price, description, bookDetail, error_1;
+        var _a, image, name, description, price, bookDetails, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
                     return [4 /*yield*/, req.body];
                 case 1:
-                    _a = _b.sent(), image = _a.image, name = _a.name, price = _a.price, description = _a.description;
+                    _a = _b.sent(), image = _a.image, name = _a.name, description = _a.description, price = _a.price;
                     if (!image)
                         throw new Error("image is required");
                     if (!name)
                         throw new Error("name is required");
                     if (!price)
                         throw new Error("price is required");
-                    bookDetail = { image: image, name: name, description: description, price: price, serialNo: uid() };
-                    addBook.push(bookDetail);
+                    bookDetails = { image: image, name: name, description: description, price: price, serialNo: uid() };
+                    addBook.push(bookDetails);
                     res.send({ addBook: addBook });
                     return [3 /*break*/, 3];
                 case 2:
