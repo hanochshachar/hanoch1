@@ -3,6 +3,9 @@
 let html = "";
 async function handleUpBook(ev){
    ev.preventDefault()
+   try {
+      
+   
    const image = ev.target.element.bookImg.value
    const name = ev.target.element.namOfBook.value
    const description = ev.target.element.description.value
@@ -14,7 +17,9 @@ async function handleUpBook(ev){
    //@ts-ignore
    const {data} = await axios.post('/booksStore', image, name, description, price)
    console.log(data)
-
+} catch (error) {
+      console.log(error)
+}
 
 }
 
