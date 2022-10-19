@@ -18,6 +18,8 @@ mongoose.connect(url?url:'').then((res)=>{
     console.error(err.message);
   });
 
+  import msgRouter from './'
+
 
 app.listen(port, ()=>{
     console.log(`server listening on port ${port}`);
