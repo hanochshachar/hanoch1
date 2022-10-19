@@ -1,10 +1,12 @@
 "use strict";
 exports.__esModule = true;
+exports.userModel = void 0;
 var mongoose_1 = require("mongoose");
 var userSchema = new mongoose_1["default"].Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 });
-var userModel = mongoose_1["default"].model('users', userSchema);
+exports.userModel = mongoose_1["default"].model('users', userSchema);

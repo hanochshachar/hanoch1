@@ -1,10 +1,12 @@
 "use strict";
 exports.__esModule = true;
+exports.messageModel = void 0;
 var mongoose_1 = require("mongoose");
 var messageSchema = new mongoose_1["default"].Schema({
     content: {
         type: String,
-        required: true
+        required: true,
+        date: new Date()
     },
     senderID: {
         type: String,
@@ -15,4 +17,4 @@ var messageSchema = new mongoose_1["default"].Schema({
         required: true
     }
 });
-var messageModel = mongoose_1["default"].model('messages', messageSchema);
+exports.messageModel = mongoose_1["default"].model('messages', messageSchema);

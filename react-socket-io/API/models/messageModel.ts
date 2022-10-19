@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const messageSchema = new mongoose.Schema({
     content: {
         type: String,
-        required: true
+        required: true,
+        date: new Date()
     },
     senderID: {
         type: String,
@@ -12,7 +13,8 @@ const messageSchema = new mongoose.Schema({
     receiverID: {
         type: String,
         required: true
-    } 
+    }, 
+    
 });
 
-const messageModel = mongoose.model('messages', messageSchema);
+export const messageModel = mongoose.model('messages', messageSchema);
