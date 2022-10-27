@@ -39,18 +39,20 @@ exports.__esModule = true;
 exports.findUser = exports.addUser = void 0;
 var userModel_1 = require("../models/userModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, name, password, userAdded, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                name = req.body.name;
-                return [4 /*yield*/, userModel_1.userModel.create({ name: name })];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, password = _a.password;
+                return [4 /*yield*/, userModel_1.userModel.create({ name: name, password: password })];
             case 1:
-                _a.sent();
+                userAdded = _b.sent();
+                userAdded && console.log({ ok: true });
+                userAdded || res.send('wrong');
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 res.send({ error: error_1.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];

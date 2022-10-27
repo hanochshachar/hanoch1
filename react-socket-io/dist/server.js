@@ -9,9 +9,9 @@ const app = express_1.default();
 const http = require('http');
 const socket_io_1 = require("socket.io");
 const port = 4000;
-app.listen(port, () => {
-    console.log(`server listening on port ${port}`);
-});
+// app.listen(port, ()=>{
+//     console.log(`server listening on port ${port}`);
+// })
 const server = http.createServer(app);
 const cors_1 = __importDefault(require("cors"));
 app.use(cors_1.default());
@@ -39,3 +39,6 @@ mongoose_1.default.connect(url).then((res) => {
 });
 const messageRoute_1 = __importDefault(require("./API/messageRoute"));
 app.use('/messaging', messageRoute_1.default);
+server.listen(port, () => {
+    console.log(`server are listening on http://localhost:${port}`);
+});

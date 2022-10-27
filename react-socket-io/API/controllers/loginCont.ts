@@ -1,9 +1,10 @@
 import { userModel } from "../models/userModel";
 export const addUser = async (req, res) =>{
     try {
-        const {name} = req.body;
-        await userModel.create({name})
-
+        const {name, password} = req.body;
+        const userAdded = await userModel.create({name, password});
+        userAdded && console.log({ok:true})
+        userAdded || res.send('wrong')
     } catch (error) {
         res.send({error: error.message})
     }

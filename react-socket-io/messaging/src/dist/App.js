@@ -1,14 +1,13 @@
 "use strict";
 exports.__esModule = true;
 var react_1 = require("react");
-var io = require("socket.io-client");
-var socket = io.connect("http://localhost:4000");
+var Login_1 = require("./component/Login");
+var react_router_dom_1 = require("react-router-dom");
+var Chat_1 = require("./component/Chat");
 function App() {
-    var sendMessage = function () {
-        socket.emit('send_message', { message: "hello" });
-    };
-    return (react_1["default"].createElement("div", { className: "App" },
-        react_1["default"].createElement("input", { type: "text", name: "message", placeholder: 'message...' }),
-        react_1["default"].createElement("button", { onClick: sendMessage }, "send")));
+    return (react_1["default"].createElement(react_router_dom_1.BrowserRouter, null,
+        react_1["default"].createElement(react_router_dom_1.Routes, null,
+            react_1["default"].createElement(react_router_dom_1.Route, { path: '/login', element: react_1["default"].createElement(Login_1.Login, null) }),
+            react_1["default"].createElement(react_router_dom_1.Route, { path: '/chat', element: react_1["default"].createElement(Chat_1.Socket, null) }))));
 }
 exports["default"] = App;

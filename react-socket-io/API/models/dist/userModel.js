@@ -7,6 +7,10 @@ var userSchema = new mongoose_1["default"].Schema({
         type: String,
         required: true,
         unique: true
+    },
+    password: {
+        type: String,
+        required: true
     }
 });
 exports.userModel = mongoose_1["default"].model('users', userSchema);

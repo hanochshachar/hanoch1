@@ -6,10 +6,10 @@ import { Server } from 'socket.io';
 
 const port:number = 4000;
 
-app.listen(port, ()=>{
-    console.log(`server listening on port ${port}`);
+// app.listen(port, ()=>{
+//     console.log(`server listening on port ${port}`);
     
-})
+// })
 
 const server = http.createServer(app);
 import cors from "cors";
@@ -50,5 +50,10 @@ mongoose.connect(url).then((res)=>{
 
   import msgRouter from './API/messageRoute'
   app.use('/messaging', msgRouter)
+
+  server.listen(port, () => {
+    console.log(`server are listening on http://localhost:${port}`);
+    
+  })
 
 
