@@ -24,7 +24,7 @@ const lessonsSchema = new mongoose.Schema({
     day: String,
     dateS2: String,
     dateE2: String,
-    hour:String,//* */
+    hour:String,
     price: Number,
     coach: String
 });
@@ -33,7 +33,7 @@ const cartSchema = new mongoose.Schema({
     day: String,
     dateS2: String,
     dateE2: String,
-    hour:String,//* */
+    hour:String,
     price: Number,
     user: String
 });

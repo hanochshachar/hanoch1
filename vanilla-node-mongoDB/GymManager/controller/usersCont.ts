@@ -60,24 +60,4 @@ export async function coachLogin(req:any, res:any){
 }
 
 
-//Backup login function before add becrypt:
-
-// export async function login(req:any, res:any){
-//     try {
-//         const {email, password} = req.body;
-        
-//         const findUser:any = await regModel.findOne({email, password});
-//         if (!findUser) throw new Error("User name or password do not match");
-//         const role = findUser.role
-//         const cookie = (findUser._id, role);
-//         const secret = process.env.JWT_SECRET;
-//         const JWTCookie = jwt.encode(cookie, secret);
-//         res.cookie('user', JWTCookie)
-//         res.send({ok:true})
-//     } catch (error:any) {
-//         res.send({error: error.message})
-//     }
-// }
-
-
 

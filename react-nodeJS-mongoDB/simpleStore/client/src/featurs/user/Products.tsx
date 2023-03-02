@@ -12,7 +12,6 @@ export const Products =  () => {
       
         axios.get("/api/products/get-product")
         .then((data:any)=>{
-            // console.log(data.data.productDB);
             const {productDB, error} = data.data;
             setGetProducts(productDB)
             
@@ -20,7 +19,6 @@ export const Products =  () => {
              
     },[])
 
-    // console.log(getProducts);
   return (
     <div>
       <h1 className='welcome'>welcome to the shop</h1>

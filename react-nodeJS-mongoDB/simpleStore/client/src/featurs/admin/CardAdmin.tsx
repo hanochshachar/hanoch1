@@ -9,9 +9,6 @@ interface CardAdminProps{
 }
 
 export const CardAdmin:FC<CardAdminProps> = ({product, setDisplayWindow, setId}) => {
-  // const { setCopy } = useGlobalContext()
-
-  //isEdit state
   const display= () =>{
     setId(product._id)
     setDisplayWindow(true)

@@ -24,7 +24,6 @@ const allGuidesSlice = createSlice({
             })
             .addCase(allGuidesAsync.fulfilled, (state, action) => {
                 state.status = 'idle'
-                // const {guides} = action.payload
                 state.guides = action.payload
             })
             .addCase(allGuidesAsync.rejected, (state) => {

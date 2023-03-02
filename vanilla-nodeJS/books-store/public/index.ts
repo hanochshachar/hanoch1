@@ -22,7 +22,6 @@ async function handleUpBook(ev) {
     const { data } = await axios.post("/booksStore", { image, name, description, price });
     console.log('booksStore', data);
     const { addBook } = data;
-    // console.log(addBook)
     renderBook(addBook)
 
     ev.target.reset()
@@ -32,7 +31,6 @@ async function handleUpBook(ev) {
 }
 
 function renderBook(books: Array<Book>) {
-
 
   const htmlBooksHolder = document.querySelector("#books");
   let html = "";
@@ -66,12 +64,11 @@ async function getBook() {
     console.log(error)
   }
 }
-// getBook();
 
 async function handleUpdateDesc(serialNo) {
   try {
     const description: string = prompt("pleas enter description!");
-
+    //@ts-ignore
     const { data } = await axios.put('/updateDesc', { serialNo, description })
     const { addBook } = data;
     renderBook(addBook)
@@ -88,8 +85,7 @@ async function handleUpdateDesc(serialNo) {
 async function handleUpdatePrice(serialNo) {
   try {
     const price = prompt("pleas enter price!");
-    // const price = parseInt(p)
-    console.log(price)
+    //@ts-ignore
     const { data } = await axios.put('/updatePrice', { serialNo, price })
     console.log(data)
     const { addBook } = data;
@@ -106,6 +102,7 @@ async function handleUpdatePrice(serialNo) {
 
 async function handleDeleteBook(serialNo) {
   try {
+    //@ts-ignore
     const { data } = await axios.delete('/deleteBook', { data: { serialNo } });
     const { addBook, error } = data
     if (error) throw new Error(error);
@@ -120,7 +117,7 @@ async function handleDeleteBook(serialNo) {
 
 
 
-//client page
+
 
 
 async function renderClientBook(books: Array<Book>) {
@@ -154,7 +151,7 @@ async function renderClientBook(books: Array<Book>) {
 async function getClientList(ev) {
   try {
     ev.preventDefault();
-
+    //@ts-ignore
     const { data: { addBook } } = await axios.get('/clientGet');
     renderClientBook(addBook)
 
@@ -196,15 +193,6 @@ function renderCart(clientCart: Array<Book>) {
   }
 }
 
-// function renderTotalPrice(clientCart: Array<Book>){
-//   const totalPrice = document.querySelector('#totalToPay');
-//   const total = clientCart.reduce((acc, item) => !isNaN(item.price) ? acc + parseFloat(item.price) : acc, 0);
-
-//   console.log(total);
-//   totalPrice.innerHTML = `<h1>total to pay ${total} nis</h1>`
-
-// }
-
 async function handleCart(serialNo) {
   console.log(serialNo)
 
@@ -213,10 +201,6 @@ async function handleCart(serialNo) {
     const { data } = await axios.post('/clientCart', { serialNo })
     console.log(data)
     const { ok, clientCart, message } = data;
-
-    console.log(clientCart)
-
-    // renderCart(clientCart)
     if (ok === true) {
       alert('The Item is in the cart')
     } else {
@@ -232,13 +216,8 @@ async function cartGet() {
   try {
     //@ts-ignore
     const { data } = await axios.get('/clientCart')
-    console.log(data);
     const { clientCart } = data;
-    console.log(clientCart);
-
-
     renderCart(clientCart);
-    // renderTotalPrice(clientCart)
 
   } catch (error) {
     console.log(error)
@@ -249,6 +228,7 @@ async function cartGet() {
 async function deleteFromCart(serialNo){
 
   try {
+    //@ts-ignore
     const {data} = await axios.delete('/deleteCart', { data:{serialNo}})
     const {clientCart , error} = data;
     if (error) throw new Error(error);

@@ -4,8 +4,6 @@ import { GuidesCard } from './GuidesCard';
 
 export const GuideByFilter = () => {
   const [filter, setFilter] = useState([])
-  // let country = useRef<HTMLInputElement>(null)
-  // let city = useRef<HTMLInputElement>(null)
    async function handleSearch(ev:any){
     ev.preventDefault()
     try {
@@ -13,7 +11,7 @@ export const GuideByFilter = () => {
       country = country.value;
       city = city.value;
       const results = await axios.get(`/api-guides/find-by-filter?country=${country}&city=${city}`)
-      // getData()
+      
       setFilter(results.data);
       console.log(country, city);
       console.log(results.data);
@@ -24,24 +22,7 @@ export const GuideByFilter = () => {
       
     }
   };
-  
 
-  // const getData = async () => {
-  //   const results = await axios.get(`/api-guides/find-by-filter?country=${country}&city=${city}`)
-  //   console.log(country, city);
-  //   console.log(results);
-  //   return results.data
-  // };
-
-  // useEffect(() => {
-  //   country.current?.focus()
-  //   city.current?.focus() 
-  //   country = country.current?.value 
-  // },[filter])
-
-  // const results:any = getData()
-
-  
   return (
     <div>
       <form onSubmit={handleSearch}>

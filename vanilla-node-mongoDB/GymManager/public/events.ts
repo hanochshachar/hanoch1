@@ -79,7 +79,7 @@ async function handleAddEvent(ev:any) {
         const {data}  = await axios.post('/events/add-events', {lesson,day,dateS2,dateE2,hour,price,coach})
         console.log(data);
 
-        // renderEvent(data)
+        
         
     } catch (error) {
         console.log(error);
@@ -185,11 +185,9 @@ async function renderCart(){
         </div>`
     });
     root.innerHTML = cart;
-    // let total = 0;
+
     for(let i=0; i< data.length; i++){
         console.log(data[i].price);
-        // if(data[i]._id !== data[i]._id){
-        //  total:Number += data[i].price
         const total:Number = data.reduce((acc, lesson) => acc + lesson.price, 0)
         const totalToPay = document.querySelector('#totalToPay');
         totalToPay.innerHTML = `<h1>total to pay <br> ${(total)} nis</h1>`;

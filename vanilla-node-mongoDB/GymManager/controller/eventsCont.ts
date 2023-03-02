@@ -27,7 +27,7 @@ export async function addToCart(req, res) {
         const lesson = Cart.lesson;
         const dateStart = Cart.dateS2;
         const dateEnd = Cart.dateE2;
-        const hour = Cart.hour;//
+        const hour = Cart.hour;
         const day = Cart.day;
         const price = Cart.price;
         
@@ -42,12 +42,9 @@ export async function addToCart(req, res) {
 }
 
 export async function cartByUser(req, res){
-    //check
+    
     try {
         const {user}  = req.cookies;
-        // const secret = process.env.JWT_SECRET;
-        // var decodedCookie = jwt.decode(user, secret);
-        // const {User} = decodedCookie;
         const userCart = await cartModel.find({user});
 
         res.send(userCart);
@@ -73,21 +70,9 @@ export async function deleteFromCart(req, res){
     try{
         const _id = req.body;
         console.log(_id);
-        // const id = JSON.parse(_id)
-        
-        // const findOne = cartModel.findById({id});
         await cartModel.deleteOne({_id: _id})
     }catch (error) {
         res.send({error: error.message})
         
     }
 }
-// export async function cartCookie(req, res) {
-//     try {
-//         const {user} = req.cookies;
-//         res.cookie('customer', user)
-//     } catch (error) {
-//         res.send({error: error.message})
-        
-//     }
-// }
